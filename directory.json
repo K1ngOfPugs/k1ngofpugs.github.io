@@ -1,34 +1,46 @@
-{
-    "name": "repos",
-    "type": "folder",
-    "children": [
-        {
-            "name": "folder1",
-            "type": "folder",
-            "children": [
-                {
-                    "name": "file1.txt",
-                    "type": "file"
-                },
-                {
-                    "name": "file2.pdf",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "folder2",
-            "type": "folder",
-            "children": [
-                {
-                    "name": "file3.zip",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "file4.png",
-            "type": "file"
-        }
-    ]
-}
+[
+    {
+        "name": "site",
+        "type": "folder",
+        "children": [
+            {
+                "name": "website",
+                "type": "folder",
+                "children": [
+                    {
+                        "name": "index.css",
+                        "type": "file"
+                    },
+                    {
+                        "name": "index.html",
+                        "type": "file"
+                    },
+                    {
+                        "name": "index.js",
+                        "type": "file"
+                    }
+                ]
+            },
+            {
+                "name": "index.css",
+                "type": "file"
+            },
+            {
+                "name": "index.html",
+                "type": "file"
+            },
+            {
+                "name": "index.js",
+                "type": "file"
+            }
+        ]
+    },
+    {
+        "name": "hello.go",
+        "type": "file"
+    },
+    {
+        "name": "server.go",
+        "type": "file"
+    }
+]

@@ -1,53 +1,30 @@
+#################### NOTE #######################
+### THIS IS NOT INDENTED TO BE HUMAN-READABLE ###
+#################################################
 import os
 import json
-
 def scan_directory(directory):
     directory_structure = []
-
     for root, dirs, files in os.walk(directory):
-        # Construct a relative path for the current directory
         relative_path = os.path.relpath(root, directory)
-        
-        # Split the path to navigate the directory structure
         parts = relative_path.split(os.sep) if relative_path != '.' else []
         current_level = directory_structure
-        
-        # Navigate to the correct level in the directory structure
         for part in parts:
             for item in current_level:
                 if item["name"] == part and item["type"] == "folder":
                     current_level = item.setdefault("children", [])
                     break
-        
-        # Add directories (folders) to the current level
         for dir_name in dirs:
-            current_level.append({
-                "name": dir_name,
-                "type": "folder",
-                "children": []
-            })
-        
-        # Add files to the current level
+            current_level.append({"name": dir_name,"type": "folder","children": []})
         for file_name in files:
-            current_level.append({
-                "name": file_name,
-                "type": "file"
-            })
-
+            current_level.append({"name": file_name,"type": "file"})
     return directory_structure
-
 def save(data, output_file):
     os.remove("directory.old")
     os.rename("directory.json", "directory.old")
-
     with open(output_file, 'w') as json_file:
         json.dump(data, json_file, indent=4)
-
 if __name__ == "__main__":
-    folder_to_scan = "repos"  # Replace with the path to the folder you want to scan
-
-    data = scan_directory(folder_to_scan)
-
+    data = scan_directory("repos")
     save(data, "directory.json")
-
     print("Directory structure saved.")
