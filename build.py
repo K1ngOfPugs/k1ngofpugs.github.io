@@ -20,11 +20,9 @@ def scan_directory(directory):
             current_level.append({"name": file_name,"type": "file"})
     return directory_structure
 def save(data, output_file):
-    os.remove("directory.old")
-    os.rename("directory.json", "directory.old")
     with open(output_file, 'w') as json_file:
         json.dump(data, json_file, indent=4)
-if __name__ == "__main__":
-    data = scan_directory("repos")
-    save(data, "directory.json")
+if __name__ == "__main__": 
+    with open("directory.json", 'w') as json_file:
+        json.dump(scan_directory("repos"), json_file, indent=4)
     print("Directory structure saved.")
