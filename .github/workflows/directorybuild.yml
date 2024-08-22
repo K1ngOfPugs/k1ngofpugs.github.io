@@ -17,18 +17,22 @@ jobs:
           
       - name: Run script
         run: python build.py
-        
-      - name: Show current directory
-        run: pwd
 
-      - name: List current directory
-        run: ls
-
-      - name: List above directory
-        run: ls ../
-
-      - name: Upload directory.json
-        uses: actions/upload-artifact@v2
+      - name: Commit artifact
+        id: commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add --asll
+          if [-z "$(git status --porcelain)"]; then
+              echo "::set-output name=push::false"
+          else
+              git commit -m "Add artifact from build" -a
+              echo "::set-output name=push::true"
+          fi
+        shell: bash
+      - name: Push changes
+        if: steps.commit.output.push == 'true'
+        uses: ad-m/github-push-action@master
         with:
-          name: directory-json
-          path: ./directory.json
+          github_token: ${{ secrets.GITHUB_TOKEN }}
