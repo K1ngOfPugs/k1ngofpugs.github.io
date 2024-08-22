@@ -1,31 +1,17 @@
 name: Directory Build (Python)
 
-  
-
 on: [push]
 
-  
-
 jobs:
+  run-script:
+    runs-on: ubuntu-latest
 
-run-script:
-
-runs-on: ubuntu-latest
-
-steps:
-
-- name: Checkout repository
-
-uses: actions/checkout@v2
-
-- name: Set up Python
-
-uses: actions/setup-python@v2
-
-with:
-
-python-version: '3.9'
-
-- name: Run script
-
-run: python script.py
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Run script
+        run: python script.py
