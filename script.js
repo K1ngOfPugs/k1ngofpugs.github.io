@@ -1,10 +1,8 @@
 // Function to create the file/folder structure recursively
 function mainFileTree(node, parentElement) {
-    console.log("Length: " + node.length);
 
     for (let i = 0; i < node.length; i++) {
         const listItem = document.createElement('li');
-        console.log("Iteration " + i);
         let ndata = node[i];
 
         if (ndata.type === 'folder') {
@@ -26,7 +24,6 @@ function mainFileTree(node, parentElement) {
                 subList.classList.toggle('active');
             }
         } else if (ndata.type === 'file') {
-            console.log("File: " + ndata.name);
             const fileLink = document.createElement('a');
             fileLink.href = `repos/${ndata.name}`;
             fileLink.textContent = ndata.name;
