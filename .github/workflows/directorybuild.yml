@@ -9,9 +9,26 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
+          
       - name: Run script
         run: python build.py
+        
+      - name: Show current directory
+        run: pwd
+
+      - name: List current directory
+        run: ls
+
+      - name: List above directory
+        run: ls ../
+
+      - name: Upload directory.json
+        uses: actions/upload-artifact@v2
+        with:
+          name: directory-json
+          path: ./directory.json
