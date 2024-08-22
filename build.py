@@ -25,6 +25,8 @@ def save(data, output_file):
 if __name__ == "__main__": 
     try:
         os.remove("directory.json")
+    except:
+        pass
     with open("directory.json", 'w') as json_file:
         json.dump(scan_directory("repos"), json_file, indent=4)
     print("Directory structure saved.")
