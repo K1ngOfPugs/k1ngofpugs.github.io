@@ -1,32 +1,25 @@
 #################### NOTE #######################
 ### THIS IS NOT INDENTED TO BE HUMAN-READABLE ###
 #################################################
-import os
-import json
-def scan_directory(directory):
-    directory_structure = []
-    for root, dirs, files in os.walk(directory):
-        relative_path = os.path.relpath(root, directory)
-        parts = relative_path.split(os.sep) if relative_path != '.' else []
-        current_level = directory_structure
-        for part in parts:
-            for item in current_level:
-                if item["name"] == part and item["type"] == "folder":
-                    current_level = item.setdefault("children", [])
-                    break
-        for dir_name in dirs:
-            current_level.append({"name": dir_name,"type": "folder","children": []})
-        for file_name in files:
-            current_level.append({"name": file_name,"type": "file"})
-    return directory_structure
-def save(data, output_file):
-    with open(output_file, 'w') as json_file:
-        json.dump(data, json_file, indent=4)
-if __name__ == "__main__": 
-    try:
-        os.remove("directory.json")
-    except:
-        pass
-    with open("directory.json", 'w') as json_file:
-        json.dump(scan_directory("repos"), json_file, indent=4)
-    print("Directory structure saved.")
+C='repos'
+B='directory.json'
+import os as A,json,shutil as D
+def E(directory):
+    J='children';I='folder';F=directory;E='type';D='name';G=[]
+    for(K,L,M)in A.walk(F):
+        H=A.path.relpath(K,F);N=H.split(A.sep)if H!='.'else[];B=G
+        for O in N:
+            for C in B:
+                if C[D]==O and C[E]==I:B=C.setdefault(J,[]);break
+        for P in L:B.append({D:P,E:I,J:[]})
+        for Q in M:B.append({D:Q,E:'file'})
+    return G
+def F(data,output_file):
+    A.remove(B)
+    with open(output_file,'w')as C:json.dump(data,C,indent=4)
+def G(foldername):A=foldername;B=A.replace('/','')+'.zip';D.make_archive(B,'zip',A)
+def H():
+    A.chdir(C);E=[];B=A.listdir()
+    for D in range(len(B)):
+        if A.path.isdir(B[D]):G(B[D])
+if __name__=='__main__':I=C;J=E(I);F(J,B);H()

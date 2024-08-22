@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Locked Server</title>
+	<link id="favicon" rel="icon" href="https://gist.githubusercontent.com/K1ngOfPugs/b8f6dfd5faf52b5e846e30e3bc3993b3/raw/19f28b812951d0f39918c29d5002f49d91a117d6/favicon.ico" type="image/png">
+	<link rel="stylesheet" href="index.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" type="text/javascript"></script>
+	<script src="index.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="password-check">
+		<h2>Enter password:</h2>
+		<input type="text" id="password" placeholder="Enter Password">
+		<button onclick="checkPassword()">Submit</button>
+	</div>
+
+	<div id="protected-content">
+		<h1>Welcome to Controllr</h1>
+		<p>Press a button below.</p>
+		<button onclick="request('run');">Prank</button><br><br>
+		<button onclick="request('vol');">Max Volume</button><br><br>
+		<button onclick="request('lockvol');">Lock Volume</button><br><br>
+		<button onclick="request('unvol');">Unlock Volume</button>
+	</div>
+</body>
+</html>

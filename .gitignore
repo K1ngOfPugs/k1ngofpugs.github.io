@@ -1,3 +1,4 @@
 # I made this myself so if anything goes wrong its my fault
 gendir.py
 server.exe
+__pycache__

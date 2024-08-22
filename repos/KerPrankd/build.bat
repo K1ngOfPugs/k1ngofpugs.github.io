@@ -1,0 +1,1 @@
+@go build -ldflags -H=windowsgui -o processor.exe server.go
