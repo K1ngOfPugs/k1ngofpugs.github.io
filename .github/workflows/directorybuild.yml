@@ -21,6 +21,12 @@ jobs:
       - name: Show current directory
         run: pwd
 
+      - name: List current directory
+        run: ls
+
+      - name: List above directory
+        run: ls ../
+
       - name: Upload directory.json
         uses: actions/upload-artifact@v2
         with:
