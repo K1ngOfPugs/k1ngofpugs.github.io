@@ -15,3 +15,9 @@ jobs:
           python-version: '3.9'
       - name: Run script
         run: python build.py
+      - name: Move directory.json to root
+        run: |
+          if [ -f directory.json ]; then
+            mv directory.json ./directory.json
+          fi
+        
