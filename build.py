@@ -22,4 +22,4 @@ def H():
     A.chdir(C);E=[];B=A.listdir()
     for D in range(len(B)):
         if A.path.isdir(B[D]):G(B[D])
-if __name__=='__main__':I=C;J=E(I);F(J,B);H()
+if __name__=='__main__':H();I=C;J=E(I);F(J,B);print('Directory structure saved.')
