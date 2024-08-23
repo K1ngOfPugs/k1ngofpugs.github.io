@@ -1,5 +1,61 @@
 [
     {
+        "name": "KerPrankd",
+        "type": "folder",
+        "children": [
+            {
+                "name": "site",
+                "type": "folder",
+                "children": [
+                    {
+                        "name": "index.css",
+                        "type": "file"
+                    },
+                    {
+                        "name": "index.html",
+                        "type": "file"
+                    },
+                    {
+                        "name": "index.js",
+                        "type": "file"
+                    }
+                ]
+            },
+            {
+                "name": "build.bat",
+                "type": "file"
+            },
+            {
+                "name": "go.mod",
+                "type": "file"
+            },
+            {
+                "name": "go.sum",
+                "type": "file"
+            },
+            {
+                "name": "installr.cmd",
+                "type": "file"
+            },
+            {
+                "name": "processor.exe",
+                "type": "file"
+            },
+            {
+                "name": "server.go",
+                "type": "file"
+            },
+            {
+                "name": "song.mp3",
+                "type": "file"
+            }
+        ]
+    },
+    {
+        "name": "KerPrankd.zip",
+        "type": "file"
+    },
+    {
         "name": "test.txt",
         "type": "file"
     }
