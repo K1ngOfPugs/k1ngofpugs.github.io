@@ -15,11 +15,12 @@ def E(directory):
         for Q in M:B.append({D:Q,E:'file'})
     return G
 def F(data,output_file):
-    A.remove(B)
+    try:A.remove(B)
+    except:pass
     with open(output_file,'w')as C:json.dump(data,C,indent=4)
 def G(foldername):A=foldername;B=A.replace('/','')+'.zip';D.make_archive(B,'zip',A)
-def H():
+def J():
     A.chdir(C);E=[];B=A.listdir()
     for D in range(len(B)):
         if A.path.isdir(B[D]):G(B[D])
-if __name__=='__main__':H();I=C;J=E(I);F(J,B)
+if __name__=='__main__':zipfiles();H=C;I=E(H);F(I,B);print('Directory structure saved.')
