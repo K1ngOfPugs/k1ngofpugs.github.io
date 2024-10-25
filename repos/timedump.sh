@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if keychain_dumper (the program that dumps the keychain) is installed
-if [ -f "/usr/bin/keychain_dumper" ]; then
+if [ ! -f "/usr/bin/keychain_dumper" ]; then
     echo -e "\e[38;5;196m[ERR] Please install keychain_dumper."
     exit 1
 fi
